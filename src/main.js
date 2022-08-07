@@ -33,21 +33,21 @@ const mainStore = createStore({
         async register(state, user) {
             try {
                 await axios.post("https://dev.mememarkup.sdore.me/api/register", user )
-                console.log(user)
                 let member = {
                     login: user.email,
                     password: user.password
                 }
-                console.log(member)
-                commit('login', member)
+                this.commit('login', member)
             } catch (error) {
                 console.log(error);
             }
         },
         async login(state, member) {
             try {
-                res = await axios.post("https://dev.mememarkup.sdore.me/api/login", member)
-                console.log(res.data)
+                let res = await axios.post("https://dev.mememarkup.sdore.me/api/login", member)
+                localStorage.setItem("token", res.data.token)
+                localStorage.setItem("login", member.login)
+                localStorage.setItem("password", member.password)
                 router.push('/')
             } catch (error) {
                 console.log(error);
