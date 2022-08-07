@@ -32,7 +32,7 @@ export default {
           email: this.email,
           password: this.password
         }
-        this.$store.commit('login', user)
+        this.$store.commit('register', user)
       } else {
         alert("Заполните все поля")
       }

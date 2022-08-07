@@ -9,7 +9,8 @@ let id = 0
 
 const mainStore = createStore({
     state: {
-        user:{},
+        login: '',
+        password: '',
         tags: [
             { id: id++, text: 'Животные' },
             { id: id++, text: 'Политика' },
@@ -29,9 +30,24 @@ const mainStore = createStore({
             state.tags.push({ id: id++, text: tag })
             router.push('/')
         },
-        async login(state, user) {
+        async register(state, user) {
             try {
-                let res = await axios.post("https://dev.mememarkup.sdore.me/api/register", user )
+                await axios.post("https://dev.mememarkup.sdore.me/api/register", user )
+                console.log(user)
+                let member = {
+                    login: user.email,
+                    password: user.password
+                }
+                console.log(member)
+                commit('login', member)
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async login(state, member) {
+            try {
+                res = await axios.post("https://dev.mememarkup.sdore.me/api/login", member)
+                console.log(res.data)
                 router.push('/')
             } catch (error) {
                 console.log(error);
