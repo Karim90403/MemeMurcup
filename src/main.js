@@ -3,15 +3,11 @@ import { createStore } from 'vuex'
 import App from './App.vue'
 import './assets/style.scss'
 import router from './router/index'
-import axios from 'axios';
-
-let id = 0
 
 const mainStore = createStore({
     state: {
-        login: '',
-        password: '',
         tags: [
+            // "Животные", "Политика", "Демотиватор", "Фильмы", "Переписки", "Новость", "Наука", "Спорт", "Футбол", "Ну нахер", "НеМем"
             { id: id++, text: 'Животные' },
             { id: id++, text: 'Политика' },
             { id: id++, text: 'Демотиватор' },
@@ -28,31 +24,9 @@ const mainStore = createStore({
     mutations: {
         addTag(state, tag) {
             state.tags.push({ id: id++, text: tag })
+            localStorage.setItem("tagsArray", state.tags)
             router.push('/')
         },
-        async register(state, user) {
-            try {
-                await axios.post("https://dev.mememarkup.sdore.me/api/register", user )
-                let member = {
-                    login: user.email,
-                    password: user.password
-                }
-                this.commit('login', member)
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        async login(state, member) {
-            try {
-                let res = await axios.post("https://dev.mememarkup.sdore.me/api/login", member)
-                localStorage.setItem("token", res.data.token)
-                localStorage.setItem("login", member.login)
-                localStorage.setItem("password", member.password)
-                router.push('/')
-            } catch (error) {
-                console.log(error);
-            }
-        }
     }
 })
 

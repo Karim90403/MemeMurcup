@@ -90,10 +90,9 @@ form{
         bottom: 0;
         left: 0;
         z-index: 1;
-        img{
-            fill: rgb(174, 57, 57);
-            stroke: rgb(123, 35, 161);
-        }
+        border-radius: 90%;
+        padding: 10px;
+        margin-bottom: 25px;
     }
 }
 

@@ -1,0 +1,200 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border: 0.1em solid #000;
+  font-size: 20px;
+  color: #000;
+}
+
+.back {
+  width: 20px;
+  overflow: hidden;
+  color: #ccc;
+}
+
+.title {
+  font-size: 40px;
+}
+
+.center {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 85%;
+  margin-left: 7%;
+}
+.center input {
+  padding: 0.7em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+.center .button {
+  padding: 0.7em;
+}
+
+.button {
+  width: 100%;
+  border: 0.2em solid #000;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  padding: 0.7em;
+  background: #000;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mem-image {
+  position: relative;
+  width: 100%;
+  padding: 2%;
+}
+.mem-image:before {
+  content: "";
+  display: block;
+  height: 100%;
+}
+.mem-image img {
+  width: 95%;
+}
+.mem-image .like {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 90%;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
+.caption {
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+}
+
+.search {
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.tag {
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.3em;
+  border: 0.1em solid #000;
+  margin: 10px;
+}
+
+.active {
+  background-color: #000;
+  color: white;
+}
+
+.tag-list {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dualbutton {
+  margin: 10px;
+  width: 85%;
+  margin-left: 5%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .main-wrap {
+    display: flex;
+    justify-content: center;
+    background-color: #292929;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+  .white-box {
+    margin-top: 150px;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}/*# sourceMappingURL=style.css.map */
