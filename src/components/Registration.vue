@@ -29,14 +29,21 @@ export default {
   },
   methods:{
     addUser(user){
-      if (this.username.length > 0 && this.email.length > 0 && this.username.length > 0){
+      if (this.username.length > 0 && this.email.length > 0 && this.password.length > 0){
         user = {
           name: this.username,
           email: this.email,
           password: this.password
         }
         this.register(user)
-      } else {
+      } else if (this.email.length > 0 && this.password.length > 0){
+          let member = {
+            login: this.email,
+            password: this.password
+          }
+        this.login(member)
+      }
+       else {
         alert("Заполните все поля")
       }
     },
