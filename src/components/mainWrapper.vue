@@ -30,6 +30,7 @@
 
 <script>
 import axios from 'axios';
+import router from '../router/index';
 
 export default {
   name: "mainWrapper",
@@ -58,6 +59,9 @@ export default {
       this.activeTags.push(tag)
       this.$store.state.tags = this.$store.state.tags.filter((t) => t !== tag)
       this.searching = this.$store.state.tags.filter((t) => t.includes(this.search))
+      console.log(this.activeTags)
+      console.log(this.$store.state.tags)
+
     },
     removeActiveTag(tag){
       this.$store.state.tags.push(tag)
@@ -76,10 +80,10 @@ export default {
         let memData = {
           id: this.mem.id,
           tags: this.activeTags,
-          isLiked: this.isLiked
+          is_liked: this.isLiked
         }
         console.log(memData)
-        await axios.post("https://dev.mememarkup.sdore.me/api/task",memData, {
+        await axios.post("https://dev.mememarkup.sdore.me/api/submit",memData, {
             headers: {
                 Authorization: 'Bearer ' + `${localStorage.getItem("token")}`
             }
@@ -110,8 +114,11 @@ export default {
     }
   },
   mounted(){
-    if (localStorage.getItem("tagsArray").length>0){
+    if (localStorage.getItem("tagsArray")){
       this.$store.state.tags = JSON.parse(localStorage.getItem("tagsArray"))
+    }
+    if (!localStorage.getItem("token")){
+      router.push('/register')
     }
   },
   unmounted(){
